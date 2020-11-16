@@ -5,7 +5,7 @@ import json
 
 # pour les fonctions d'appel à OWM
 import requests
-owmtoken = "7ee6bfdfa6178b4ee99ad48ff12d0b61"
+owmtoken = "YOUR TOKEN"
 owmurl="http://api.openweathermap.org/data/2.5/"
 
 # intialisation de l'application
