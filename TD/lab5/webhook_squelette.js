@@ -11,7 +11,7 @@ webhook.use(bodyparser.json());
 webhook.set('port',9900)
 
 // token openweathermap
-const owmToken = '7ee6bfdfa6178b4ee99ad48ff12d0b61';
+const owmToken = 'YOUR TOKEN';
 
 
 // démarrage du serveur REST
