@@ -67,13 +67,51 @@ def determineSmiley(weatherId):
         return ":partly_sunny:"
     return ":sunny:"
 
-	
-	#######  onstruire la réponse de structure Slack : construireSlackWebhookResponse
+def construireSlackWebhookResponse(ville, desc, max, min, smiley):
+    speech = "Aujourd'hui à, *" + ville + "* le temps est de type :" + desc
+    response = {
+        "fulfillmentText": speech,
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [speech]
+                }
+            },
+            {
+                "payload": {
+                    "slack": {
+                        "text": speech,
+                        "username": "IMTbot",
+                        "attachments": [
+                            {
+                                "text": smiley,
+                                "mrkdwn_in": ["text"]
+                            },
+                            {
+                                "pretext": "Températures",
+                                "fields": [
+                                    {
+                                        "title": "Minimum",
+                                        "value": min,
+                                        "short": True
+                                    },
+                                    {
+                                        "title": "Maximum",
+                                        "value": max,
+                                        "short": True
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "platform": "SLACK"
+            }
+        ]
+    }
+    return response
 
 
-
-
-########
 # run the app
 if __name__ == '__main__':
    print("Webhook démarré")
