@@ -67,39 +67,48 @@ def determineSmiley(weatherId):
     return ":sunny:"
 
 def construireSlackWebhookResponse(ville, desc, max, min, smiley, prenom):
-    speech = prenom + ", aujourd'hui à, *" + ville + "* le temps est de type :" + desc
+    speech = prenom+ ", aujourd'hui à, *" + ville + "* le temps est de type :" + desc
     response = {
         "fulfillmentText": speech,
-        "payload" : {
-            "slack":{
-                "text": speech,
-                "username": "IMTbot",
-                "attachments": [
-                    {
-                        "text": smiley,
-                        "mrkdwn_in": ["text"]
-                    },
-                    {
-                        "pretext": "Températures",
-                        "fields": [
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [speech]
+                }
+            },
+            {
+                "payload": {
+                    "slack": {
+                        "text": speech,
+                        "username": "IMTbot",
+                        "attachments": [
                             {
-                                "title": "Minimum",
-                                "value": min,
-                                "short": True
+                                "text": smiley,
+                                "mrkdwn_in": ["text"]
                             },
                             {
-                                "title": "Maximum",
-                                "value": max,
-                                "short": True
+                                "pretext": "Températures",
+                                "fields": [
+                                    {
+                                        "title": "Minimum",
+                                        "value": min,
+                                        "short": True
+                                    },
+                                    {
+                                        "title": "Maximum",
+                                        "value": max,
+                                        "short": True
+                                    }
+                                ]
                             }
                         ]
                     }
-                ]
+                },
+                "platform": "SLACK"
             }
-        }
+        ]
     }
     return response
-
 # retrouve le prénom dans la mémoire
 def retrouvePrenom(contexts,nomMemoire):
     print(contexts)
