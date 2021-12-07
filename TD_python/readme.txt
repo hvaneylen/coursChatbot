@@ -11,7 +11,7 @@ Les TP s'appuient sur les éléments suivants :
  3- Installer Ngrok à partir du site https://ngrok.com/   - prendre la version gratuite - elle est largement suffisante pour le cours
  4- Créer un compte gratuit Dialogflow à partir du site https://dialogflow.com/
  5- Créer un compte Slack à partir du site https://slack.com/
- 6- Créer un compte OpenWeatherMap pour interroger la météo d'une ville sur https://openweathermap.org/
+ 6- Créer un compte OpenWeatherMap pour interroger la météo d'une ville sur https://openweathermap.org/   token : 7ee6bfdfa6178b4ee99ad48ff12d0b61
  
  Les différents labs qui nécessite de rédiger un webhook en python sont fournis sous les répertoires labx
  fournis avec le readme. Il y a deux versions de chaque programme xx_squelette.py est le fichier de TD, l'autre
